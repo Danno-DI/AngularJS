@@ -1,0 +1,19 @@
+<!doctype html>
+<html ng-app>
+	<head>
+		<script src="http://code.angularjs.org/1.0.5/angular.min.js"></script>
+	</head>
+		<body>
+			<div ng-init="list=['Chrome', 'IE', 'Firefox', 'Ssfari']">
+				<input ng-model="list" ng-list><br>
+				<input ng-model="list" ng-list><br>
+				<pre>list is {{list}}</pre>
+				<ol>
+					<li ng-repeat="browser in list">
+						{{browser}}
+					</li>
+				</ol>		
+			</div>			
+		</body>
+	</head>
+</html>

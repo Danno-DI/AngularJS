@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+	<head>
+	  <style>
+	  p { color:red; margin:5px; cursor:pointer; }
+	  p:hover { background:yellow; }
+	  </style>
+	  <script src="http://code.jquery.com/jquery-latest.js"></script>
+	</head>
+		<body>
+			<p>First paragraph</p>
+			<p>Second paragraph</p>
+			<p>third paragraph</p>			
+			<script>
+				$("p").click(function(){
+					$(this).slideUp();
+				});
+			</script>			
+		</body>
+	</head>
+</html>

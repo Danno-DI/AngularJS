@@ -1,0 +1,13 @@
+<!doctype html>
+<html ng-app>
+	<head>
+		<script src="http://code.angularjs.org/1.0.5/angular.min.js"></script>
+		<script src="clickcounterscript.js"></script>
+	</head>
+		<body ng-controller="ClickCounterCtrl">
+			<div ng-click="action()">Click Me</div>
+			<p >Count: {{counter}}!</p>
+			<p ng-show="reset">You clicked {{maxClicks}} times, the counter has been reset.</p>
+		</body>
+	</head>
+</html>
