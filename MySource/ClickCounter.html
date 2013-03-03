@@ -3,11 +3,18 @@
 	<head>
 		<script src="http://code.angularjs.org/1.0.5/angular.min.js"></script>
 		<script src="clickcounterscript.js"></script>
+		<style>
+			.statusdiv { vertical-align:middle;}
+			.statusimage {float:left; width:14px; height:14px; margin-left:5px;margin-right:5px;margin-top:2px;}
+			.statuscritical { color: #CF5D60; }
+			.statuslow { color: blue; }
+		</style>
 	</head>
 		<body ng-controller="ClickCounterCtrl">
 			<div ng-click="action()">Click Me</div>
 			<p >Count: {{counter}}!</p>
 			<p ng-show="reset">You clicked {{maxClicks}} times, the counter has been reset.</p>
+			<div class="statusdiv statuscritical"><img class="statusimage" src="Images/Priority_Critical.png"/>Critical</div>
 		</body>
 	</head>
 </html>
