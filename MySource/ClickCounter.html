@@ -12,9 +12,9 @@
 	</head>
 		<body ng-controller="ClickCounterCtrl">
 			<div ng-click="action()">Click Me</div>
-			<p >Count: {{counter}}!</p>
+			<p>Count: {{counter}}!</p>
 			<p ng-show="reset">You clicked {{maxClicks}} times, the counter has been reset.</p>
-			<div class="statusdiv statuscritical"><img class="statusimage" src="Images/Priority_Critical.png"/>Critical</div>
+			<div ng-class="divStatus"><img class="statusimage" ng-src="{{imageSource}}"/>{{priorityLevel}}</div>
 		</body>
 	</head>
 </html>

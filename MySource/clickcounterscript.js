@@ -4,6 +4,9 @@ function ClickCounterCtrl($scope) {
 		$scope.counter += 1;
 	
 		if($scope.counter == $scope.maxClicks ){
+			$scope.priorityLevel = "Critical"
+			$scope.imageSource = "Images/Priority_Critical.png"
+			$scope.divStatus = "statusdiv statuscritical"
 			$scope.setReset(true);		
 		}
 		if($scope.counter == 1 ){
@@ -14,8 +17,15 @@ function ClickCounterCtrl($scope) {
 	$scope.setReset = function(reset){
 		$scope.reset = reset;
 		if(reset){
-			$scope.counter = 0;
+			$scope.counter = 0;		
 		}
+		else
+		{
+			$scope.priorityLevel = "low"
+			$scope.imageSource = "Images/Priority_Low.png"
+			$scope.divStatus = "statusdiv statuslow"		
+		}
+		
 	}
 
 	// Initialise
