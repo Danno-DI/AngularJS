@@ -1,21 +1,36 @@
 <!doctype html>
-<html>
+<html ng-app="myModule">
 	<head>
 	  <style>
-	  p { color:red; margin:5px; cursor:pointer; }
-	  p:hover { background:yellow; }
+	   p { color:red; margin:5px; cursor:pointer; }
+	   p:hover { background:yellow; }
 	  </style>
-	  <script src="http://code.jquery.com/jquery-latest.js"></script>
-	</head>
-		<body>
-			<p>First paragraph</p>
-			<p>Second paragraph</p>
-			<p>third paragraph</p>			
-			<script>
-				$("p").click(function(){
+		<script src="http://code.jquery.com/jquery-latest.js"></script>
+		<script src="http://code.angularjs.org/1.0.5/angular.min.js"></script>
+	  <script>
+		var myModule = angular.module('myModule', []);
+		
+		myModule.directive('slideUp', function(){
+			
+			var linker = function($scope, element, attributes) {
+				element.on('click', function(){
 					$(this).slideUp();
 				});
-			</script>			
+			};
+			
+			return {
+				restrict: 'A',
+				link: linker
+			}
+		
+		});
+	  
+	  </script>
+	</head>
+		<body>
+			<p slide-up>First paragraph</p>
+			<p slide-up>Second paragraph</p>
+			<p>third paragraph</p>					
 		</body>
 	</head>
 </html>
