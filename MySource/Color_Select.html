@@ -2,12 +2,13 @@
 <html ng-app>
 	<head>
 		<script src="http://code.angularjs.org/1.0.5/angular.min.js"></script>
-		<script src="scripts/colorselect.js"></script>		
+		<!-- <script src="scripts/colorselect.js"></script> -->
+		<script src="scripts/colorselect_http_fetch.js"></script>		
 	</head>
 		<body>
 			<div ng-controller="colorCtrl">
 				Color (null allowed):
-				<span  class="nullable">
+				<span class="nullable">
 					<select ng-model="color" ng-options="c.name for c in colors">
 						<option value="">-- choose color --</option>
 					</select>

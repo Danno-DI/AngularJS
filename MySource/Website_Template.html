@@ -1,0 +1,21 @@
+<!doctype html>
+<html ng-app="website">
+	<head>
+		<script src="http://code.angularjs.org/1.0.5/angular.min.js"></script>
+		<script src="script.js"></script>
+		<title>Template Website</title>
+	</head>
+		<body ng-controller="mainCtrl">
+			<header id="header">
+				<h1 id="logo"><a ng-click="setRoute('home')"></a><h1>
+				<div id="menu">
+					<a ng-click="setRoute('home')" class="btn">Home</a>
+					<a ng-click="setRoute('about')" class="btn">About</a>
+					<a ng-click="setRoute('detail')" class="btn">Detail</a>
+				</div>
+			</header>
+			<div id="container">
+				<div ng-view></div>
+			</div>
+		</body>
+</html>

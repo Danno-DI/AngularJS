@@ -1,0 +1,41 @@
+<!doctype html>
+<html ng-app>
+	<head>
+		<script src="http://code.angularjs.org/1.0.5/angular.min.js"></script>
+		<script src="scripts/filterlist.js"></script>		
+	</head>
+		<body>
+			<div ng-controller="filterListCtrl">
+				Search: <input ng-model="searchText">
+				<table>
+					<thead>
+						<th>Name</th>
+						<th>Phone Number</th>						
+					</thead>
+					<tbody>
+						<tr ng-repeat="friend in friends | filter:searchText">
+							<td>{{friend.name}}</td>
+							<td>{{friend.phone}}</td>
+						</tr>
+					</tbody>
+				</table>
+				<br>
+				<hr/>
+				<br/>
+				Search: <input ng-model="search.name">  <!--  // search.$ for any -->
+				<table>
+					<thead>
+						<th>Name</th>
+						<th>Phone Number</th>						
+					</thead>
+					<tbody>
+						<tr ng-repeat="friend in friends | filter:search">
+							<td>{{friend.name}}</td>
+							<td>{{friend.phone}}</td>
+						</tr>
+					</tbody>
+				</table>				
+			</div>
+		</body>
+	</head>
+</html>
