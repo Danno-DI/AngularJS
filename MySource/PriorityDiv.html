@@ -1,0 +1,25 @@
+<!doctype html>
+<html ng-app="priorityApp">
+<head>
+	<script src="http://code.angularjs.org/1.0.5/angular.min.js"></script>
+	<script src="scripts/priorityDiv.js"></script>
+	<style>
+		.priority-div { vertical-align:middle;}
+		.priority-image {float:left; width:14px; height:14px; margin-left:5px;margin-right:5px;margin-top:2px;}
+		.priority-critical { color: #red; }
+		.priority-high { color: #CF5D60; }			
+		.priority-medium { color: yellow; }						
+		.priority-low { color: blue; }
+	</style>
+</head>
+<body ng-controller="DisplayCtrl">
+	<div ng-repeat="incident in incidents">
+		<p>
+			<span>{{incident.issue}}</span>
+			<span>{{incident.priority}}</span>
+			<incident-priority>{{incident.priority}}</incident-priority>
+		</p>
+	</div>
+</body>
+
+</html>
