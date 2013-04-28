@@ -1,6 +1,6 @@
 function HelloWorldCtrl($scope) {
 	$scope.action = function(){
-		$scope.name='OK';
+		$scope.name=' from the action function';
 	}
 	$scope.name='World';
 }

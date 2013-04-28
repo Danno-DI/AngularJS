@@ -5,11 +5,12 @@ priorityApp.controller('DisplayCtrl' ,function($scope){
 											{issue:'One-critical', priority:'critical'}, 
 											{issue:'Two-low', priority:'low'}, 
 											{issue:'Three-high', priority:'high'}, 
+											{issue:'Three.5-high', priority:'high'}, 
 											{issue:'Four-medium', priority:'medium'}
 											]
 });
 
-priorityApp.directive('incidentPriority', function($compile) {
+priorityApp.directive('incidentPriority', function() {
  
     var getImage = function(priority) {
          var imageSrc = [];
@@ -41,7 +42,7 @@ priorityApp.directive('incidentPriority', function($compile) {
         restrict: 'E',
 		replace: true,
         scope: 'isolate',
-        template: '<div><img class="priority-image" ng-src="{{imageSource}}"/><span ng-class="spanPriority">It\'s {{incident.priority}}</span></div>',
+        template: '<td><img class="priority-image" ng-src="{{imageSource}}"/><span ng-class="spanPriority">It\'s {{incident.priority}}</span></td>',
 		link: linker
     };
 });										

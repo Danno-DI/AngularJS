@@ -1,0 +1,57 @@
+<!doctype html>
+<html ng-app="uiTester">
+<head>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.5/angular.js"></script>
+    <script src="http://angular-ui.github.com/bootstrap/ui-bootstrap-tpls-0.2.0.js"></script>
+	<script src="scripts/BootstrapUITester.js"></script>
+    <link href="bootstrap.min.css" rel="stylesheet">	
+
+</head>
+		<body>
+			<li class="dropdown" ng-controller="DropdownCtrl">
+			  <a class="dropdown-toggle">
+				Click me for a dropdown, yo!
+			  </a>
+			  <ul class="dropdown-menu">
+				<li ng-repeat="choice in items">
+				  <a>{{choice}}</a>
+				</li>
+			  </ul>
+			</li>
+			<li class="dropdown">
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+				<ul class="dropdown-menu">
+					<li><a href="#">Action</a></li>
+					<li><a href="#">Another action</a></li>
+					<li><a href="#">Something else here</a></li>
+					<li class="divider"></li>
+					<li class="nav-header">Nav header</li>
+					<li><a href="#">Separated link</a></li>
+					<li><a href="#">One more separated link</a></li>
+				 </ul>
+			</li>			
+			</div>
+			
+			<div ng-controller="ModalDemoCtrl">
+				<button class="btn" ng-click="open()">Open me!</button>
+				<div modal="shouldBeOpen" close="close()" options="opts">
+					<div class="modal-header">
+						<h4>Ticket Details</h4>
+					</div>
+					<div class="modal-body">
+						<span>{{Incident}}</span>
+						<span>{{Request}}</span>					
+						<span>{{Company}}</span>					
+						<span>{{Contact}}</span>					
+						<span>{{Summary}}</span>					
+						<span>{{Detail}}</span> 										
+					</div>
+					<div class="modal-footer">
+						<button class="btn btn-warning cancel" ng-click="close()">Cancel</button>
+					</div>
+				</div>
+			</div>
+			
+		</body>
+	</head>
+</html>

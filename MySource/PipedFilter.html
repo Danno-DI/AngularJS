@@ -1,0 +1,28 @@
+<!doctype html>
+<html ng-app="EngineerApp">
+	<head>
+		<script src="http://code.angularjs.org/1.0.5/angular.min.js"></script>
+		<script src="scripts/pipedFilter.js"></script>
+		<script src="Scripts/ui-bootstrap-tpls-0.1.0-SNAPSHOT.js"></script>
+		<link rel="stylesheet" type="text/css" href="bootstrap.min.css" />		
+	</head>
+		<body>
+			<div class="span8" ng-controller="PipedListController">
+				<form class="form-horizontal">
+					<div class="span3">
+						<input type="text" placeholder="Engineer Filter" ng-model="engineerFilter">
+					</div>
+					<div class="span3">
+						<input type="text" placeholder="Group Filter" ng-model="groupFilter">
+					</div>
+				</form>
+				<br/>				
+				<div class="span3">
+					<p ng-repeat="engineer in engineers | EngineerAppFilter:engineerFilter | GroupAppFilter:groupFilter">
+						<span>{{engineer.name}} </span> : <span> {{engineer.group}}</span>
+					</p>
+				</div>		
+			</div>
+		</body>
+	</head>
+</html>
