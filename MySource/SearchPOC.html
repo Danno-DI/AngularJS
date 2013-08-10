@@ -1,0 +1,26 @@
+<!doctype html>
+<html ng-app="SearchApp">
+	<head>
+		<script src="http://code.angularjs.org/1.0.5/angular.min.js"></script>
+		<script src="scripts/searchPOC.js"></script>
+		<script src="Scripts/ui-bootstrap-tpls-0.1.0-SNAPSHOT.js"></script>
+		<link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link href="css/bootstrap-responsive.css" rel="stylesheet">		
+	</head>
+		<body>
+			<div class="span8" ng-controller="SearcPOCController">
+				<form class="form-horizontal">
+					<div class="span3">
+						<input type="text" placeholder="Engineer Filter" ng-model="engineerFilter">
+					</div>
+					<div class="span3">
+						<input type="text" placeholder="Group Filter" ng-model="groupFilter">
+					</div>
+				</form>
+				<br/>
+				<a class="btn btn-mini" href="#"><i class="icon-star pull-right" style="margin-left: 20px; margin-top: 2px;"></i>star</a>				
+			</div>
+		</body>
+	</head>
+</html>

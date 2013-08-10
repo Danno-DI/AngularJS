@@ -1,6 +1,6 @@
-var engineerApp = angular.module('EngineerApp', [])
+var searchApp = angular.module('SearchApp', [])
 
-engineerApp.controller('PipedListController', function ($scope) {
+searchApp.controller('SearcPOCController', function ($scope) {
 
     $scope.groups = [
                           { group: 'US' },
@@ -33,43 +33,4 @@ engineerApp.controller('PipedListController', function ($scope) {
                           { name: 'Unassigned', group: 'Unassigned' }
                     ];
 
-});
-
-engineerApp.filter('EngineerAppFilter', function() {
-
-    return function(items, engineerName){
-
-		if (!engineerName)
-		{
-			return items;
-		}
-	
-        var arrayToReturn = [];        
-        for (var i=0; i<items.length; i++){
-
-            if (items[i].name.toLowerCase().indexOf(engineerName.toLowerCase()) != -1) {
-                arrayToReturn.push(items[i]);
-            }
-        }       
-        return arrayToReturn;
-    };
-});
-
-engineerApp.filter('GroupAppFilter', function() {
-
-    return function(items, groupName){
-        
-		if (!groupName)
-		{
-			return items;
-		}
-
-        var arrayToReturn = [];        
-        for (var i=0; i<items.length; i++){
-            if (items[i].group.toLowerCase().indexOf(groupName) != -1) {
-                arrayToReturn.push(items[i]);
-            }
-        }       
-        return arrayToReturn;
-    };
 });

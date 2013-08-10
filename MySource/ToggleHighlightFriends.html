@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html ng-app="Demo" ng-controller="DemoController">
+  
+  <head>
+    <meta charset="utf-8">
+    <title>Using Controllers With ngRepeat In AngularJS</title>
+		<script src="http://code.angularjs.org/1.0.5/angular.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <style type="text/css">
+      ul {
+            list-style-type: none ;
+            margin: 16px 0px 22px 0px ;
+            padding: 0px 0px 0px 0px ;
+        }
+ 
+        ul:after {
+            clear: both ;
+            content: "" ;
+            display: block ;
+        }
+ 
+        li {
+            background-color: #F0F0F0 ;
+            border: 1px solid #CCCCCC ;
+            border-radius: 4px 4px 4px 4px ;
+            cursor: pointer ;
+            float: left ;
+            height: 70px ;
+            margin: 0px 16px 0px 0px ;
+            text-align: center ;
+            width: 160px ;
+        }
+ 
+        li.selected {
+            border-color: #CC0000 ;
+        }
+        
+        li:hover {
+            border-color: #CC0000 ;
+        }
+        
+        li:hover span.nickname {
+            display: block;
+        }
+        
+        li.selected span.nickname {
+            display: block;
+        }
+ 
+        span.name {
+            display: block ;
+            font-size: 18px ;
+            padding: 14px 0px 10px 0px ;
+        }
+ 
+        span.nickname {
+            color: #666666 ;
+            display: none ;
+            font-size: 14px ;
+        }
+               
+    </style>    
+  </head>
+  
+  <body>
+     <h1>
+        Using Controllers With ngRepeat In AngularJS
+    </h1>
+
+    <!-- List of friend - each item in the ngRepeat directive gets its own instance
+    of the ItemController. -->
+    <ul>
+      <li 
+      ng-repeat="friend in friends"       
+      ng-click="toggleSelection( friend )"
+      ng-class="{ selected: isSelected( friend ) }"> 
+            <span class="name">
+                {{ friend.name }}
+            </span>
+            <span class="nickname">
+                aka {{ friend.nickname }}
+            </span>
+
+      </li>
+    </ul>
+    <!-- List of selected friends. -->
+    <p ng-show="selectedFriends.length"> <strong>Selected Friends</strong>: <span ng-repeat="friend in selectedFriends">
+ 
+            {{ friend.name }}
+ 
+            <span ng-show=" ! $last ">-</span>
+</span>
+    </p>
+    <!-- Load the app module and its classes. -->
+    <script type="text/javascript">
+      // Define our AngularJS application module.
+        var demo = angular.module( "Demo", [] );
+ 
+ 
+        // -------------------------------------------------- //
+        // -------------------------------------------------- //
+ 
+ 
+        // I am the main controller for the application.
+        demo.controller(
+            "DemoController",
+            function( $scope ) {
+              
+              
+                 // -- Define Scope Variables. --------------- //
+ 
+ 
+                // I am the list of friends to show.
+                $scope.friends = [
+                    {
+                        id: 1,
+                        name: "Tricia",
+                        nickname: "Sugar Pie"
+                    },
+                    {
+                        id: 2,
+                        name: "Joanna",
+                        nickname: "Honey Dumpling"
+                    },
+                    {
+                        id: 3,
+                        name: "Kit",
+                        nickname: "Sparky"
+                    }
+                ];
+ 
+ 
+                // I am the list of friend that have been selected
+                // by the current user.
+                $scope.selectedFriends = [];                                 
+ 
+                // -- Define Scope Methods. ----------------- //
+ 
+                $scope.toggleSelection = function( friend ) {
+ 
+                    // If the item has been selected, then we have to
+                    // tell the parent controller to selected the
+                    // relevant friend.
+                    if ( !$scope.isSelected( friend ) ) {
+ 
+                        selectFriend( friend );
+ 
+                    // If the item has been unselected, then we have
+                    // to tell the parent controller to DEselected the
+                    // relevant friend.
+                    } else {
+ 
+                        deselectFriend( friend );
+            
+                    }
+ 
+                };
+ 
+                $scope.isSelected = function (friend) {
+                  
+                  return selectedFriendsMap[friend.name] == true;
+                }
+ 
+                
+                var selectedFriendsMap = {};
+ 
+                // I remove the given friend from the list of
+                // selected friends.
+                function deselectFriend( friend ) {
+ 
+                    // NOTE: indexOf() works in IE 9+.
+                    var index = $scope.selectedFriends.indexOf( friend );
+ 
+                    if ( index >= 0 ) {
+ 
+                        $scope.selectedFriends.splice( index, 1 );                        
+                        delete selectedFriendsMap[friend.name];
+                    }
+ 
+                };
+ 
+ 
+                // I add the given friend to the list of selected
+                // friends.
+                function selectFriend( friend ) {
+ 
+                    $scope.selectedFriends.push( friend );
+                    selectedFriendsMap[friend.name] = true;
+                };                              
+   
+            }
+        );
+
+    </script>
+  </body>
+
+</html>
